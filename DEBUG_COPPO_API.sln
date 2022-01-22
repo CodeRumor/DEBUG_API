@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DEBUG_COPPO_API", "DEBUG_COPPO_API\DEBUG_COPPO_API.csproj", "{B54363AE-3A71-4DCA-8210-7482450E3099}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMMON", "COMMON\COMMON.csproj", "{8F75A29E-6CED-4D41-9B24-660D3E1ED826}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B54363AE-3A71-4DCA-8210-7482450E3099}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B54363AE-3A71-4DCA-8210-7482450E3099}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B54363AE-3A71-4DCA-8210-7482450E3099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F75A29E-6CED-4D41-9B24-660D3E1ED826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F75A29E-6CED-4D41-9B24-660D3E1ED826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F75A29E-6CED-4D41-9B24-660D3E1ED826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F75A29E-6CED-4D41-9B24-660D3E1ED826}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
