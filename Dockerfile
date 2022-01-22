@@ -8,6 +8,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["DEBUG_COPPO_API/DEBUG_COPPO_API.csproj", "DEBUG_COPPO_API/"]
+COPY ["COMMON/COMMON.csproj", "COMMON/"]
 RUN dotnet restore "DEBUG_COPPO_API/DEBUG_COPPO_API.csproj"
 COPY . .
 WORKDIR "/src/DEBUG_COPPO_API"
