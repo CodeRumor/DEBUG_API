@@ -10,5 +10,5 @@ public interface IApplicationDbContext
     /// <summary>
     /// Gets or sets <see cref="Log"/> data in the database.
     /// </summary>
-    public DbSet<Log> Logs { get; set; }
+    public DbSet<Log>? Logs { get; set; }
 }
