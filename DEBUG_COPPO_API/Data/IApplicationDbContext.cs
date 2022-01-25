@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 namespace DEBUG_COPPO_API.Data;
 
 /// <summary>
-/// A blue print of the <see cref="ApplicationDbContext"/> class used to access data from the database.
+/// A blue print of the <see cref="ApplicationDbContext"/> class that provides a context used to query data from the
+/// database.
 /// </summary>
 public interface IApplicationDbContext
 {
