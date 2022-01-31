@@ -1,3 +1,4 @@
+using CodeRumor.DataAccessLibrary.DbContext;
 using COMMON.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +7,7 @@ namespace DEBUG_COPPO_API.Data;
 /// <summary>
 /// An implementation of the <see cref="ApplicationDbContext"/> class used to access data from the database.
 /// </summary>
-public class ApplicationDbContext : DbContext, IApplicationDbContext
+public class ApplicationDbContext : GeneralDbContext, IApplicationDbContext
 {
     /// <summary>
     /// Initialises an instance of the <see cref="ApplicationDbContext"/> class.
