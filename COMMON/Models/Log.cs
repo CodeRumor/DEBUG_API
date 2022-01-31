@@ -5,7 +5,7 @@ namespace COMMON.Models;
 /// <summary>
 /// A <see cref="Log"/> class which contains application logging information for the COPPO_API project.
 /// </summary>
-public sealed class Log
+public class Log
 {
     /// <summary>
     /// A unique identifier used to identity this <see cref="Log"/>.
