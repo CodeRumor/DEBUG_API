@@ -1,3 +1,4 @@
+using CodeRumor.DataAccessLibrary.DbContext;
 using COMMON.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +7,7 @@ namespace DEBUG_COPPO_API.Data;
 /// <summary>
 /// An implementation of the <see cref="ApplicationDbContext"/> class used to access data from the database.
 /// </summary>
-public class ApplicationDbContext : DbContext, IApplicationDbContext
+public class ApplicationDbContext : GeneralDbContext, IApplicationDbContext
 {
     /// <summary>
     /// Initialises an instance of the <see cref="ApplicationDbContext"/> class.
@@ -30,6 +31,11 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         // create a Logs table with auto id.
         modelBuilder.Entity<Log>().ToTable("Logs");
         modelBuilder.Entity<Log>().Property(log => log.Id).ValueGeneratedOnAdd();
+        
+        modelBuilder.Entity<Log>(entity =>
+        {
+            entity.Property(e => e.TimeStamp).HasColumnType("datetime");
+        });
     }
     
     /// <inheritdoc/>
