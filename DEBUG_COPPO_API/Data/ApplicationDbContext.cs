@@ -31,6 +31,11 @@ public class ApplicationDbContext : GeneralDbContext, IApplicationDbContext
         // create a Logs table with auto id.
         modelBuilder.Entity<Log>().ToTable("Logs");
         modelBuilder.Entity<Log>().Property(log => log.Id).ValueGeneratedOnAdd();
+        
+        modelBuilder.Entity<Log>(entity =>
+        {
+            entity.Property(e => e.TimeStamp).HasColumnType("datetime");
+        });
     }
     
     /// <inheritdoc/>

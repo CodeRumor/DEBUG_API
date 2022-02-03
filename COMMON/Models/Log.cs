@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 namespace COMMON.Models;
 
 /// <summary>
@@ -12,20 +11,23 @@ public class Log
     /// </summary>
     [Key]
     [Required]
-    public int Id { get; set; }
+    public int Id { get; }
 
     /// <summary>
     /// The information about this <see cref="Log"/>.
     /// </summary>
-    [DefaultValue("N-A")]
-    public string Message { get; set; } = "N-A";
+    public string? Message { get; set; }
+    
+    /// <summary>
+    /// The structured representation of the message for this <see cref="Log"/>
+    /// </summary>
+    public string? MessageTemplate { get; set; }
 
     /// <summary>
     /// This is the serilog level for the <see cref="Log"/> event, they are six levels of serilog which are
     /// Verbose, debug, information, warning, Error and fatal. 
     /// </summary>
-    [DefaultValue("N-A")]
-    public string Level { get; set; } = "N-A";
+    public string? Level { get; set; } 
     
     /// <summary>
     /// The time in which the <see cref="Log"/> even occured.
@@ -35,12 +37,10 @@ public class Log
     /// <summary>
     /// The <see cref="Exception"/> if any contained by the current <see cref="Log"/>.
     /// </summary>
-    [DefaultValue("N-A")]
-    public string Exception { get; set; } = "N-A";
+    public string? Exception { get; set; } 
 
     /// <summary>
     /// Describes a set of attributes that belong to a <see cref="Log"/>.
     /// </summary>
-    [DefaultValue("N-A")]
-    public string Properties { get; set; } = "N-A";
+    public string? Properties { get; set; }
 }

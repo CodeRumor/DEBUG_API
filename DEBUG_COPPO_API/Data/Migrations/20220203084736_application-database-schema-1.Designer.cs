@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DEBUG_COPPO_API.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220124094525_Initial-1")]
-    partial class Initial1
+    [Migration("20220203084736_application-database-schema-1")]
+    partial class applicationdatabaseschema1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,23 +33,22 @@ namespace DEBUG_COPPO_API.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Exception")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Level")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Message")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MessageTemplate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Properties")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("TimeStamp")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime");
 
                     b.HasKey("Id");
 
