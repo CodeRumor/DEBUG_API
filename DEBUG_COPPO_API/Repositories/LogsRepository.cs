@@ -4,12 +4,13 @@ using COMMON.Models;
 namespace DEBUG_COPPO_API.Repositories;
 using CodeRumor.DataAccessLibrary.Repositories;
 
+/// A concrete <see cref="LogsRepository"/> class for accessing <see cref="Log"/> data from the database.
 public class LogsRepository : BaseRepository<Log>
 {
     /// <summary>
-    /// A concrete <see cref="LogsRepository"/> class for accessing <see cref="Log"/> data from the database.
+    /// Initialises the class of the <see cref="LogsRepository"/>.
     /// </summary>
-    /// <param name="generalDbContext">A context that provides a way to read data from the database</param>
+    /// <param name="generalDbContext">A context that provides a way to read data from the database.</param>
     /// <param name="logger">Logs the status of the current <see cref="LogsRepository"/> processes.</param>
     public LogsRepository(
         IGeneralDbContext generalDbContext,
