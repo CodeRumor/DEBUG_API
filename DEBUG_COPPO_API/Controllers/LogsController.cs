@@ -19,7 +19,7 @@ public class LogsController : BaseController<Log, Log>
     /// </summary>
     /// <param name="baseRepository">Services that provides data from the repository.</param>
     /// <param name="logger">A logger for logging errors as they occur.</param>
-    public LogsController(IBaseRepository<Log> baseRepository, ILogger<BaseController<Log, Log>> logger) :
+    public LogsController(IBaseRepository<Log> baseRepository, ILogger<LogsController> logger) :
         base(baseRepository, logger)
     {
     }
