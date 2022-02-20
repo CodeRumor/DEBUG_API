@@ -21,12 +21,13 @@ have occured when the COPPO-API application was running.
 ### Running application
 - Running the application inside an IDE simply press F5 or the Run button.
 - Running the application inside a container in docker can be done using the command shown below.
-  - **`docker-compose up --build -d`**
+  - **`docker-compose build --build-arg FEED_ACCESSTOKEN --build-arg FEED_PATH --no-cache`**
     - `docker-compose` is used to run the docker-compose.yml file. 
-    - `up` deploys the application in a container inside docker.
-    - `--build` rebuilds the application before deployment.
-    - `-d` insures the application is deployed in a a detached way. This means in the absence of a terminal. 
-    
+    - `build` builds the application before deployment.
+    - `--build-arg` the build arguments needed for this build process FEED_ACCESSTOKEN is needed to access the nuget package store in azureDevOps
+  FEED_PATH store the path to the feed where packages are stored in azureDevOps
+    - `--no-cache` ensure the build process doesn't sure cached data to create the container for the application.
+
 ### Updating migrations
 This application contains multiple contexts, a context is used has a mechanism for accessing data from the database. 
 The contexts include applicationDbContext and IdentityContext. When rebuilding the database schema it's important to reference the correct context being used for that schema.
