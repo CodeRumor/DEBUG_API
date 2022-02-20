@@ -36,9 +36,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Add middleware for redirecting HTTP Requests to HTTPS.
-app.UseHttpsRedirection();
-
 // Add middleware that will enable authentication.
 app.UseAuthorization();
 
