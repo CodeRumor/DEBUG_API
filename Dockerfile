@@ -13,8 +13,10 @@ RUN curl -L https://raw.githubusercontent.com/Microsoft/artifacts-credprovider/m
 COPY ["DEBUG_COPPO_API/DEBUG_COPPO_API.csproj", "DEBUG_COPPO_API/"]
 COPY ["COMMON/COMMON.csproj", "COMMON/"]
 COPY ./nuget.config ./
+ARG FEED_ACCESSTOKEN
+ARG FEED_PATH
 
-ENV VSS_NUGET_EXTERNAL_FEED_ENDPOINTS "{\"endpointCredentials\": [{\"endpoint\":\"https://pkgs.dev.azure.com/ugololeivan-yahoo/CodeRumor/_packaging/DataAccessLibraryFeed/nuget/v3/index.json\", \"username\":\"docker\", \"password\":\"4xt2hdtrrxgu67b3eoszkh5yhg4zxr2d5q2xmbb4sfhize4gnx2q\"}]}"
+ENV VSS_NUGET_EXTERNAL_FEED_ENDPOINTS "{\"endpointCredentials\": [{\"endpoint\":\"${FEED_PATH}\", \"username\":\"docker\", \"password\":\"${FEED_ACCESSTOKEN}\"}]}"
 RUN dotnet restore "DEBUG_COPPO_API/DEBUG_COPPO_API.csproj"
 
 COPY . .
