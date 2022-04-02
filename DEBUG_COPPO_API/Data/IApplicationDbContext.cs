@@ -9,7 +9,7 @@ namespace DEBUG_COPPO_API.Data;
 public interface IApplicationDbContext
 {
     /// <summary>
-    /// Gets or sets <see cref="Log"/> data in the database.
+    /// Gets or sets <see cref="CoppoLog"/> data in the database.
     /// </summary>
-    public DbSet<Log>? Logs { get; set; }
+    public DbSet<CoppoLog>? CoppoLogs { get; set; }
 }
