@@ -20,7 +20,7 @@ public class CoppoLogsController : BaseController<CoppoLog, CoppoLog>
     /// <param name="baseRepository">Services that provides data from the repository.</param>
     /// <param name="logger">A logger for logging errors as they occur.</param>
     public CoppoLogsController(IBaseRepository<CoppoLog> baseRepository, ILogger<CoppoLogsController> logger) :
-        base(baseRepository, logger)
+        base(baseRepository, logger) 
     {
     }
 }
