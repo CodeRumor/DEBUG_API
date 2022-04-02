@@ -1,5 +1,4 @@
 using CodeRumor.DataAccessLibrary.Controllers;
-using CodeRumor.DataAccessLibrary.DbContext;
 using CodeRumor.DataAccessLibrary.Repositories;
 using COMMON.Models;
 using Microsoft.AspNetCore.Mvc;
