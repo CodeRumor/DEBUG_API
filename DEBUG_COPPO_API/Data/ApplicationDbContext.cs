@@ -29,15 +29,15 @@ public class ApplicationDbContext : GeneralDbContext, IApplicationDbContext
         base.OnModelCreating(modelBuilder);
 
         // create a Logs table with auto id.
-        modelBuilder.Entity<Log>().ToTable("Logs");
-        modelBuilder.Entity<Log>().Property(log => log.Id).ValueGeneratedOnAdd();
+        modelBuilder.Entity<CoppoLog>().ToTable("CoppoLogs");
+        modelBuilder.Entity<CoppoLog>().Property(log => log.Id).ValueGeneratedOnAdd();
         
-        modelBuilder.Entity<Log>(entity =>
+        modelBuilder.Entity<CoppoLog>(entity =>
         {
             entity.Property(e => e.TimeStamp).HasColumnType("datetime");
         });
     }
     
     /// <inheritdoc/>
-    public DbSet<Log>? Logs { get; set; }
+    public DbSet<CoppoLog>? CoppoLogs { get; set; }
 }
