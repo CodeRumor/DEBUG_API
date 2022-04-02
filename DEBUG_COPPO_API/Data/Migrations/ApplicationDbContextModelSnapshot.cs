@@ -17,12 +17,12 @@ namespace DEBUG_COPPO_API.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "6.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("COMMON.Models.Log", b =>
+            modelBuilder.Entity("COMMON.Models.CoppoLog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -50,7 +50,7 @@ namespace DEBUG_COPPO_API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Logs", (string)null);
+                    b.ToTable("CoppoLogs", (string)null);
                 });
 #pragma warning restore 612, 618
         }
