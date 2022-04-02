@@ -21,7 +21,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Register needed repository.
-builder.Services.AddScoped(typeof(IBaseRepository<Log>), typeof(LogsRepository));
+builder.Services.AddScoped(typeof(IBaseRepository<CoppoLog>), typeof(CoppoLogsRepository));
 
 // Register needed applicationDbContext.
 builder.Services.AddScoped(typeof(IGeneralDbContext), typeof(ApplicationDbContext));
