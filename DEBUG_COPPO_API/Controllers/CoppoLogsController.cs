@@ -11,15 +11,15 @@ namespace DEBUG_COPPO_API.Controllers;
 /// </summary>
 [ApiController]
 [Route("[controller]")]
-public class LogsController : BaseController<Log, Log>
+public class CoppoLogsController : BaseController<CoppoLog, CoppoLog>
 {
     
     /// <summary>
-    /// Initialises a <see cref="LogsController"/> class.
+    /// Initialises a <see cref="CoppoLogsController"/> class.
     /// </summary>
     /// <param name="baseRepository">Services that provides data from the repository.</param>
     /// <param name="logger">A logger for logging errors as they occur.</param>
-    public LogsController(IBaseRepository<Log> baseRepository, ILogger<LogsController> logger) :
+    public CoppoLogsController(IBaseRepository<CoppoLog> baseRepository, ILogger<CoppoLogsController> logger) :
         base(baseRepository, logger)
     {
     }
