@@ -1,8 +1,8 @@
-# Coppo API
+# Debug API
 
 ### Introduction
 This application is a web-base API that allows you to retrieve the error messages that 
-have occured when the COPPO-API application was running.
+have occured when running all CodeRumor based applications.
 
 ### Pre-software installations
 - Install one of the following IDE to run the application 
