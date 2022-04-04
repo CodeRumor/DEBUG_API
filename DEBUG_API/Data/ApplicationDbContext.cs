@@ -1,5 +1,6 @@
 using CodeRumor.DataAccessLibrary.DbContext;
 using COMMON.Models;
+using DEBUG_API.Data.ModelRelationship;
 using Microsoft.EntityFrameworkCore;
 
 namespace DEBUG_API.Data;
@@ -27,15 +28,7 @@ public class ApplicationDbContext : GeneralDbContext, IApplicationDbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        // create a Logs table with auto id.
-        modelBuilder.Entity<CoppoLog>().ToTable("CoppoLogs");
-        modelBuilder.Entity<CoppoLog>().Property(log => log.Id).ValueGeneratedOnAdd();
-        
-        modelBuilder.Entity<CoppoLog>(entity =>
-        {
-            entity.Property(e => e.TimeStamp).HasColumnType("datetime");
-        });
+        CoppoLogModelBuilder.Instance.Build(modelBuilder);
     }
     
     /// <inheritdoc/>
