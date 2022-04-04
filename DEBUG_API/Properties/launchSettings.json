@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "DEBUG_COPPO_API": {
+    "DEBUG_API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

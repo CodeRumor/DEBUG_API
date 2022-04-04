@@ -3,7 +3,7 @@ using CodeRumor.DataAccessLibrary.Repositories;
 using COMMON.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DEBUG_COPPO_API.Controllers;
+namespace DEBUG_API.Controllers;
 
 /// <summary>
 /// Provides methods used to access data from the database.

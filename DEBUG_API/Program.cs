@@ -1,9 +1,9 @@
-using DEBUG_COPPO_API.Data;
 using Microsoft.EntityFrameworkCore;
 using CodeRumor.DataAccessLibrary.DbContext;
 using CodeRumor.DataAccessLibrary.Repositories;
 using COMMON.Models;
-using DEBUG_COPPO_API.Repositories;
+using DEBUG_API.Data;
+using DEBUG_API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

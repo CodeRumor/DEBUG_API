@@ -1,8 +1,8 @@
 using CodeRumor.DataAccessLibrary.DbContext;
+using CodeRumor.DataAccessLibrary.Repositories;
 using COMMON.Models;
 
-namespace DEBUG_COPPO_API.Repositories;
-using CodeRumor.DataAccessLibrary.Repositories;
+namespace DEBUG_API.Repositories;
 
 /// A concrete <see cref="CoppoLogsRepository"/> class for accessing <see cref="CoppoLog"/> data from the database.
 public class CoppoLogsRepository : BaseRepository<CoppoLog>

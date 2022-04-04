@@ -2,7 +2,7 @@ using CodeRumor.DataAccessLibrary.DbContext;
 using COMMON.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DEBUG_COPPO_API.Data;
+namespace DEBUG_API.Data;
 
 /// <summary>
 /// An implementation of the <see cref="ApplicationDbContext"/> class used to access data from the database.
