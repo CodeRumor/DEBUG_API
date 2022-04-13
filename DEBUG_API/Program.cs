@@ -30,11 +30,18 @@ builder.Services.AddScoped(typeof(IBaseRepository<CoppoLog>), typeof(CoppoLogsRe
 // Register needed applicationDbContext.
 builder.Services.AddScoped(typeof(IGeneralDbContext), typeof(ApplicationDbContext));
 
-// Register needed migration builder
-builder.Services.AddScoped(typeof(ICreateMigration), typeof(CreateMigration));
-
 // Build the application this step is done once the services for the application have been set.
 var app = builder.Build();
+
+// Create a service scope to get an ApplicationDbContext instance using DI.
+using var serviceScope = ((IApplicationBuilder) app).ApplicationServices
+    .GetRequiredService<IServiceScopeFactory>().CreateScope();
+
+// Create a applicationDbContext instance.
+var applicationDbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+
+// Create a logger instance.
+var logger = serviceScope.ServiceProvider.GetService<ILogger<Program>>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -49,28 +56,8 @@ app.UseAuthorization();
 // Add end points for controller actions.
 app.MapControllers();
 
-// Create a service scope to get an ApplicationDbContext instance using DI.
-using var serviceScope = ((IApplicationBuilder) app).ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
-            
-// Create a context to access members in the database.
-var applicationDbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
-
-
-var serviceProvider = builder.Services.BuildServiceProvider();
-var logger = serviceProvider.GetService<ILogger<Program>>();
-
-try
-{
-    // Run database migration.
-    if (applicationDbContext != null)
-    {
-        applicationDbContext.Database.Migrate();
-    }
-}
-catch (Exception error)
-{
-    logger.LogError("{Message}", error.Message);
-}
+// Create migration for the database if needed.
+DebugApiMigration.Create(applicationDbContext, logger);
 
 // Runs an application and block the calling thread until host shutdown.
 app.Run();
