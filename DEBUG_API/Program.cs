@@ -42,5 +42,24 @@ app.UseAuthorization();
 // Add end points for controller actions.
 app.MapControllers();
 
+// Create a service scope to get an ApplicationDbContext instance using DI.
+using var serviceScope = ((IApplicationBuilder) app).ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+            
+// Create a context to access members in the database.
+var applicationDbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+
+try
+{
+    // Run database migration.
+    if (applicationDbContext != null)
+    {
+        applicationDbContext.Database.Migrate();
+    }
+}
+catch (Exception error)
+{
+    //_logger.LogError("{Message}", error.Message);
+}
+
 // Runs an application and block the calling thread until host shutdown.
 app.Run();
