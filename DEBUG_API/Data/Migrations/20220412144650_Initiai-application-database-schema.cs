@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DEBUG_COPPO_API.Data.Migrations
+namespace DEBUG_API.Data.Migrations
 {
-    public partial class applicationdatabaseschema1 : Migration
+    public partial class Initiaiapplicationdatabaseschema : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Logs",
+                name: "CoppoLogs",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -24,14 +24,14 @@ namespace DEBUG_COPPO_API.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Logs", x => x.Id);
+                    table.PrimaryKey("PK_CoppoLogs", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Logs");
+                name: "CoppoLogs");
         }
     }
 }
