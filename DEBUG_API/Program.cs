@@ -30,8 +30,14 @@ builder.Services.AddScoped(typeof(IBaseRepository<CoppoLog>), typeof(CoppoLogsRe
 // Register needed applicationDbContext.
 builder.Services.AddScoped(typeof(IGeneralDbContext), typeof(ApplicationDbContext));
 
+builder.Services.AddCors();
+
 // Build the application this step is done once the services for the application have been set.
 var app = builder.Build();
+
+// Temporarily allow the api to accept any kind of header attributes from the client.
+// This will be updated in the near future once I understand what headers are and how to efficiently use them.
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 // Create a service scope to get an ApplicationDbContext instance using DI.
 using var serviceScope = ((IApplicationBuilder) app).ApplicationServices
