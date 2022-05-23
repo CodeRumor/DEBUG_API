@@ -30,6 +30,9 @@ builder.Services.AddScoped(typeof(IBaseRepository<CoppoLog>), typeof(CoppoLogsRe
 // Register needed applicationDbContext.
 builder.Services.AddScoped(typeof(IGeneralDbContext), typeof(ApplicationDbContext));
 
+// Adding Cross Origin Resource sharing also known as CORS 
+// This will allow restricted resources on a web page to be requested from another
+// domain outside the domain from which the first resource was served.
 builder.Services.AddCors();
 
 // Build the application this step is done once the services for the application have been set.
@@ -37,7 +40,7 @@ var app = builder.Build();
 
 // Temporarily allow the api to accept any kind of header attributes from the client.
 // This will be updated in the near future once I understand what headers are and how to efficiently use them.
-app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseCors(options => options.WithOrigins("http://localhost:4001").WithMethods("GET").WithHeaders("application/x-www-form-urlencoded"));
 
 // Create a service scope to get an ApplicationDbContext instance using DI.
 using var serviceScope = ((IApplicationBuilder) app).ApplicationServices
